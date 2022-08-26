@@ -1,0 +1,54 @@
+
+<p *ngIf="!tesisList"><em>Loading...</em></p>
+
+<form>
+  <div class="form-group">
+    <label>Tesis Kod</label>
+    <input type="text" class="form-control" [(ngModel)]="tesisObject.tesisKod" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group">
+    <label>Firma Kod</label>
+    <input type="text" class="form-control" [(ngModel)]="tesisObject.firmaKod" [ngModelOptions]="{standalone: true}">
+  </div>
+  <div class="form-group">
+    <label>İlce Kod</label>
+    <input type="text" class="form-control" [(ngModel)]="tesisObject.ilceKod" [ngModelOptions]="{standalone: true}">
+  </div>
+  <br />
+  <button *ngIf="showSaveButton" type="submit" class="btn btn-primary" (click)="kaydet()">Kaydet</button>
+  <button *ngIf="showEditButton" type="submit" class="btn btn-success" (click)="guncelle()">Güncelle</button>
+</form>
+
+<br />
+<br />
+<br />
+<br />
+<br />
+
+<table class="table table-dark" aria-labelledby="tableLabel" *ngIf="tesisList">
+  <thead>
+    <tr>
+      <th scope="col">Tesis ID</th>
+      <th scope="col">Tesis Kod</th>
+      <th scope="col">Firma Kod</th>
+      <th scope="col">İlçe Kod</th>
+      <th scope="col">Kayıt Tarihi</th>
+      <th scope="col">GuncellemeTarih</th>
+      <th scope="col">İşlemler</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tesis of tesisList">
+      <td>{{ tesis.tesisId }}</td>
+      <td>{{ tesis.tesisKod }}</td>
+      <td>{{ tesis.firmaKod || '**Girilmiş**' }}</td>
+      <td>{{ tesis.ilceKod }}</td>
+      <td>{{ tesis.kayitTarih | date:'dd.MM.yyyy' }}</td>
+      <td>{{ (tesis.guncellemeTarih | date:'dd.MM.yyyy') || '**Girilmiş**' }}</td>
+      <td>
+        <button class="btn btn-primary" (click)="duzenle(tesis)">Düzenle</button>
+        <button class="btn btn-primary" (click)="sil(tesis.tesisId)">Sil</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

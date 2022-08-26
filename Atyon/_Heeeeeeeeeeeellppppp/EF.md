@@ -1,0 +1,1 @@
+﻿Scaffold-DbContext "Server=.;Database=Atyon;Trusted_Connection=false;User Id=atyon_app;Password=123456;" Microsoft.EntityFrameworkCore.SqlServer -f -DataAnnotations -Project "Atyon"  -OutputDir "Entities" -Schemas “dbo” -Context “AtyonDataContext"

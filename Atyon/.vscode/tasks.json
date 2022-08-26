@@ -1,0 +1,25 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "Build Atyon",
+            "command": "dotnet",
+            "type": "process",
+            "args": [
+                "build",
+                "${workspaceFolder}/Atyon.csproj"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+        {
+            "label": "Task Kill --> dotnet.exe",
+            "command": "taskkill",
+            "args": [
+                "/F",
+                "/IM",
+                "dotnet.exe"
+            ],
+            "problemMatcher": "$msCompile"
+        },
+    ]
+}
